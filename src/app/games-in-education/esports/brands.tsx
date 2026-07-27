@@ -24,7 +24,7 @@ export default function Brands() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="mx-auto max-w-3xl text-center text-2xl font-medium leading-tight md:text-3xl lg:text-[34px]"
+                    className="mx-auto max-w-5xl text-center text-2xl font-medium leading-tight md:text-3xl lg:text-[34px]"
                 >
                     Great brands we&apos;ve partnered with through the years
                 </motion.h2>

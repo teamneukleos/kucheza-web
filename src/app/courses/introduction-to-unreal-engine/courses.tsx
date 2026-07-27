@@ -4,16 +4,7 @@ import { motion } from "framer-motion";
 import CourseCard, { CourseCardData } from "./coursecard";
 
 const courses: CourseCardData[] = [
-  {
-    title: "INTRODUCTION TO UNREAL ENGINE",
-    description:
-      "Learn the basics of Unreal Engine, from installation to creating your first interactive scene.",
-    href: "/courses/introduction-to-unreal-engine",
-    image: "/courses/course-1.png",
-    theme: "#FFD400",
-    tag: "Course",
-    tags: ["4 Weeks", "Beginner", "Blueprints"],
-  },
+  
   {
     title: "UNREAL ENGINE FOR ARCHITECTURE",
     description:
@@ -25,24 +16,24 @@ const courses: CourseCardData[] = [
     tags: ["2 Weeks", "Architecture", "Animation"],
   },
   {
-    title: "UNREAL ENGINE FOR VR",
+    title: "REAL-TIME CINEMATICS",
     description:
-      "Learn how to create immersive VR experiences using Unreal Engine.",
+      "Create beautiful cinematics and animations using Sequencer inside Unreal Engine.",
     href: "/courses/real-time-cinematics",
     image: "/courses/course-3.png",
     theme: "#FFD400",
     tag: "Course",
-    tags: ["2 Weeks", "VR", "Mixed Reality"],
+    tags: ["Sequencer", "Lighting", "Cinematics"],
   },
   {
-    title: "UNREAL ENGINE FOR AR",
+    title: "GAME DEVELOPMENT BOOTCAMP",
     description:
-      "Learn how to create engaging AR applications using Unreal Engine.",
+      "Learn game mechanics, Blueprints, UI systems and packaging your first playable game.",
     href: "/courses/game-development",
     image: "/courses/course-4.png",
     theme: "#FFD400",
     tag: "Course",
-    tags: ["2 Weeks", "AR", "Mixed Reality"],
+    tags: ["8 Weeks", "Gameplay", "UI"],
   },
 ];export default function Courses() {
   return (

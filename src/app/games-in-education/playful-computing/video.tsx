@@ -32,7 +32,7 @@ export default function Video() {
         <div className="relative aspect-video w-full bg-black">
           <iframe
             className="absolute inset-0 h-full w-full pointer-events-none"
-            src="https://www.youtube.com/embed/BiBrJG27GPg?si"            
+            src="https://www.youtube.com/embed/BiBrJG27GPg?autoplay=1&mute=1&loop=1&playlist=BiBrJG27GPg&playsinline=1"
             title="Kucheza Gaming Showreel"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

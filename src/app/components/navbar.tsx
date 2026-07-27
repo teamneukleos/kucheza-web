@@ -55,7 +55,7 @@ export default function Navbar() {
           {/* Main Capsule Container */}
           <div className="rounded-full bg-white/40 shadow-sm backdrop-blur-[30px] px-4 py-3 sm:px-6 md:py-4">
             <div className="flex items-center justify-between gap-4">
-              
+
               {/* LEFT: Logo Anchor */}
               <Link href="/" className="flex items-center pl-2">
                 <span className="sr-only">Logo</span>
@@ -155,9 +155,8 @@ function NavItem({
       <li className="whitespace-nowrap">
         <Link
           href={link.href ?? "#"}
-          className={`transition-colors hover:text-black/70 ${
-            active ? "underline underline-offset-4 decoration-2" : ""
-          }`}
+          className={`relative inline-block pb-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-black after:transition-transform after:duration-300 hover:after:scale-x-100 ${active ? "after:scale-x-100" : ""
+            }`}
         >
           {link.title}
         </Link>
@@ -174,7 +173,7 @@ function NavItem({
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-1 transition-colors hover:text-black/70"
+        className="relative inline-flex items-center gap-1 pb-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-black after:transition-transform after:duration-300 hover:after:scale-x-100"
         aria-expanded={open}
       >
         <span>{link.title}</span>

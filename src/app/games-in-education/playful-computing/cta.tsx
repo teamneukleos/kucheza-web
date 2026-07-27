@@ -1,10 +1,11 @@
-// cta.tsx
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { useContactDialog } from "@/app/contact/contact-dialog";
 
 export default function Cta() {
+    const { open } = useContactDialog();
+
     return (
         <section className="relative w-full overflow-hidden bg-black py-24 md:py-32">
             <div className="mx-auto flex max-w-5xl flex-col items-center px-6 text-center">
@@ -24,12 +25,13 @@ export default function Cta() {
                     transition={{ delay: 0.15 }}
                     className="mt-10"
                 >
-                    <Link
-                        href="/contact"
-                        className="inline-flex items-center justify-center rounded-lg bg-[#FB1A5C] px-10 py-4 text-lg font-semibold text-[#15151E] transition-opacity hover:opacity-90"
+                    <button
+                        type="button"
+                        onClick={open}
+                        className="inline-flex items-center justify-center rounded-lg bg-[#FB1A5C] px-10 py-4 text-lg font-semibold text-[#15151E] transition-all hover:translate-x-5"
                     >
                         Contact Us
-                    </Link>
+                    </button>
                 </motion.div>
             </div>
         </section>

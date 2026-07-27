@@ -7,7 +7,7 @@ import { ProjectCardData } from "../components/projectcard";
 const games: ProjectCardData[] = [
     {
         title: "The Wild Kingdoms",
-        description: "Adventure game based on a Yoruba mythological Universe",
+        description: "A action-adventure mobile game. Step into the shoes of a King Alantakun in search of his true heritage",
         href: "https://play.google.com/store/apps/details?id=com.kuchezaGaming.thewildkingdoms&pcampaignid=web_share",
         image: "/projects/wild-kingdoms.png",
         theme: "#24F2BE",
@@ -15,7 +15,7 @@ const games: ProjectCardData[] = [
     },
     {
         title: "Danfo Dash",
-        description: "Afro futuristic combat runner multiplayer game",
+        description: "An Afro futuristic combat runner multiplayer game set in the futuristic and bustling city of Lagos",
         href: "https://www.youtube.com/watch?v=7LNl2Bbt0os",
         image: "/projects/danfo-dash.png",
         theme: "#24F2BE",
@@ -23,7 +23,7 @@ const games: ProjectCardData[] = [
     },
     {
         title: "Sunday School'd",
-        description: "A party game where the world and rules change every birthday",
+        description: "Step into with Sunday School'd, the Bible-inspired party game that transforms scripture into a form, social and strategic for players of all ages",
         href: "/projects/sunday-school-d",
         image: "/projects/sunday-schoold.png",
         theme: "#FF2D6E",

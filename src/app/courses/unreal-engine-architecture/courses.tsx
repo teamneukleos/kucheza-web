@@ -25,26 +25,28 @@ const courses: CourseCardData[] = [
     tags: ["2 Weeks", "Architecture", "Animation"],
   },
   {
-    title: "UNREAL ENGINE FOR VR",
+    title: "REAL-TIME CINEMATICS",
     description:
-      "Learn how to create immersive VR experiences using Unreal Engine.",
+      "Create beautiful cinematics and animations using Sequencer inside Unreal Engine.",
     href: "/courses/real-time-cinematics",
     image: "/courses/course-3.png",
     theme: "#FFD400",
     tag: "Course",
-    tags: ["2 Weeks", "VR", "Mixed Reality"],
+    tags: ["Sequencer", "Lighting", "Cinematics"],
   },
   {
-    title: "UNREAL ENGINE FOR AR",
+    title: "GAME DEVELOPMENT BOOTCAMP",
     description:
-      "Learn how to create engaging AR applications using Unreal Engine.",
+      "Learn game mechanics, Blueprints, UI systems and packaging your first playable game.",
     href: "/courses/game-development",
     image: "/courses/course-4.png",
     theme: "#FFD400",
     tag: "Course",
-    tags: ["2 Weeks", "AR", "Mixed Reality"],
+    tags: ["8 Weeks", "Gameplay", "UI"],
   },
-];export default function Courses() {
+];
+
+export default function Courses() {
   return (
     <section className="bg-black py-20 text-white md:py-28">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8">

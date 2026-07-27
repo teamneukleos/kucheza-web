@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useContactDialog } from "@/app/contact/contact-dialog";
 import { ArrowDownLeft } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -22,6 +22,7 @@ const plans: Plan[] = [
 ];
 
 export default function PricingPlans() {
+  const { open } = useContactDialog();
   return (
     <section className="bg-black py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8">
@@ -77,8 +78,9 @@ export default function PricingPlans() {
           </div>
 
           {/* CTA */}
-          <Link
-            href="/contact"
+          <button
+            type="button"
+            onClick={open}
             className="absolute bottom-0 right-0 z-20 flex items-center gap-4 rounded-tl-[28px] bg-black px-8 py-5 text-2xl font-medium text-white transition hover:bg-neutral-900 md:text-3xl"
           >
             <ArrowDownLeft
@@ -86,7 +88,7 @@ export default function PricingPlans() {
               strokeWidth={2.5}
             />
             Enroll now
-          </Link>
+          </button>
         </div>
       </div>
     </section>

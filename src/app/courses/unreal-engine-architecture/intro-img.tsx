@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function Video() {
   const ref = useRef<HTMLDivElement>(null);
@@ -33,12 +34,12 @@ export default function Video() {
         className="mx-auto overflow-hidden will-change-transform"
       >
         <div className="relative aspect-video w-full bg-black">
-          <iframe
-            className="absolute inset-0 h-full w-full pointer-events-none"
-            src="https://www.youtube.com/embed/veuhujhwZHE?autoplay=1&mute=1&loop=1&playlist=veuhujhwZHE&playsinline=1"
-             title="Kucheza Gaming Showreel"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
+          <Image
+            src="/images/architecture-training.png" 
+            alt="Kucheza Gaming Showreel"
+            fill
+            className="object-cover"
+            priority
           />
         </div>
       </motion.div>

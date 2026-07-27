@@ -21,7 +21,7 @@ export default function GameArtCodevHero() {
                     viewport={{ once: true }}
                     className="text-xl text-black sm:text-xl font-light"
                 >
-                    Game Art, Live Ops Art & Content
+                  Unreal Engine Architecture Bootcamp
                 </motion.p>
 
                 <motion.h1
@@ -29,9 +29,10 @@ export default function GameArtCodevHero() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
-                    className="mt-4 max-w-2xl text-2xl font-extrabold leading-[1.05] text-black sm:text-4xl md:text-6xl"
+                    className="mt-4 max-w-3xl text-2xl font-extrabold leading-[1.05] text-black sm:text-4xl md:text-6xl"
                 >
-                    Game Art Co-Development
+                  Build your first <br />interactive architectural <br />
+                   walkthrough for sales <br />and investor relations
                 </motion.h1>
 
                 <motion.p
@@ -41,8 +42,9 @@ export default function GameArtCodevHero() {
                     transition={{ delay: 0.2 }}
                     className="mt-8 max-w-2xl text-xl leading-relaxed text-black sm:text-2xl font-light"
                 >
-                    We are your reliable game art co-development services partner.
-                </motion.p>
+                 Learn UE5 Architecture workflows in practice in 5 working days.
+                </ motion.p>
+
             </div>
         </section>
     );

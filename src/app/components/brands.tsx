@@ -46,14 +46,14 @@ const loopBrands = [...brands, ...brands];
 
 export default function Brands() {
   return (
-    <section className="overflow-hidden bg-white py-20 md:py-24 lg:py-28">
+    <section className="overflow-hidden bg-white py-20 pt-2">
       <div className="container">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mx-auto max-w-3xl text-center text-2xl font-medium leading-tight md:text-3xl lg:text-[34px]"
+          className="mx-auto max-w-4xl text-center text-2xl font-medium leading-tight sm:text-2xl lg:text-3xl"
         >
           Great brands we've partnered with through the years
         </motion.h2>

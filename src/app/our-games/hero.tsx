@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 export default function Hero() {
     return (
         <section
-            // 1. Changed fixed padding to full screen flex container
-            className="relative w-full h-screen min-h-[600px] flex items-center overflow-hidden bg-[#EDEDED] bg-cover bg-top"
+            className="relative flex h-[85vh] min-h-[520px] w-full items-center overflow-hidden bg-[#EDEDED] bg-cover bg-top"
             style={{
                 backgroundImage:
                     "linear-gradient(to bottom, rgba(75,84,89,0.4), rgba(0,0,0,0)), url('/hero/hero-bg.png')",
@@ -22,7 +21,7 @@ export default function Hero() {
                     <h1 className="relative max-w-[25ch] text-5xl font-bold leading-[1.05] text-[#12151B] sm:text-6xl md:text-6xl lg:text-7xl xl:text-[80px]">
                         Culture is at the{" "}
                         <span className="text-[#24F2BE]">heart</span>{" "}
-                        <span className="right-0 bottom-0 translate-y-full sm:absolute">
+                        <span className="bottom-0 right-0 translate-y-full sm:absolute">
                             of our games
                         </span>
                     </h1>

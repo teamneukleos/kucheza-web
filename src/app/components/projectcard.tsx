@@ -10,7 +10,7 @@ export type ProjectCardData = {
     image: string;
     theme: string;
     tag: string;
-    tags?: string[]; // e.g. ["Concept Art", "2D", "3D", "Character Design"]
+    tags?: string[];
     isViewable?: boolean;
 };
 
@@ -21,8 +21,20 @@ export default function ProjectCard({
 }: {
     project: ProjectCardData;
 }) {
-    // 1. Fixed fallback to avoid breaking changes if href is missing in your data
-    const { title, description, href = "#", image, theme, tag, tags = [], isViewable = true } = project;
+    const {
+        title,
+        description,
+        href = "#",
+        image,
+        theme,
+        tag,
+        tags = [],
+        isViewable = true,
+    } = project;
+
+    const useWhiteText =
+        tag === "Games in Education" || tag === "Events";
+
     const isExternal = /^https?:\/\//.test(href);
 
     return (
@@ -51,7 +63,9 @@ export default function ProjectCard({
                         </span>
 
                         <span
-                            className="absolute -bottom-8 -right-8 hidden h-[150px] w-[150px] scale-0 place-items-center rounded-full text-center text-xl font-bold leading-tight text-black transition-all duration-500 group-hover:scale-100 group-hover:bottom-1/2 group-hover:right-1/2 group-hover:translate-x-1/2 group-hover:translate-y-1/2 lg:grid"
+                            className={`absolute -bottom-8 -right-8 hidden h-[150px] w-[150px] scale-0 place-items-center rounded-full text-center text-xl font-bold leading-tight transition-all duration-500 group-hover:bottom-1/2 group-hover:right-1/2 group-hover:translate-x-1/2 group-hover:translate-y-1/2 group-hover:scale-100 lg:grid ${
+                                useWhiteText ? "text-white" : "text-black"
+                            }`}
                             style={{ backgroundColor: "var(--primary)" }}
                         >
                             <span className="relative z-[1]">
@@ -59,12 +73,15 @@ export default function ProjectCard({
                                 <br />
                                 Project
                             </span>
+
                             <span className="absolute h-[150px] w-[150px] animate-[spin_8s_linear_infinite] text-[10px] tracking-[-0.1em]">
                                 {REVOLVE_TEXT.split("").map((char, i) => (
                                     <span
                                         key={i}
                                         className="absolute left-1/2 origin-[0_75px] py-1"
-                                        style={{ transform: `rotate(${6 * i}deg)` }}
+                                        style={{
+                                            transform: `rotate(${6 * i}deg)`,
+                                        }}
                                     >
                                         {char}
                                     </span>
@@ -74,9 +91,11 @@ export default function ProjectCard({
                     </>
                 )}
 
-                {/* Top-left theme tag, with curved corner notches */}
+                {/* Top-left theme tag */}
                 <span
-                    className="absolute left-0 top-0 rounded-br-md rounded-tl-xl px-4 py-1 text-lg font-medium text-black"
+                    className={`absolute left-0 top-0 rounded-br-md rounded-tl-xl px-4 py-1 text-lg font-medium ${
+                        useWhiteText ? "text-white" : "text-black"
+                    }`}
                     style={{ backgroundColor: "var(--primary)" }}
                 >
                     <span>{tag}</span>
@@ -95,7 +114,11 @@ export default function ProjectCard({
                             </g>
                             <defs>
                                 <clipPath id="notch-clip-project">
-                                    <rect width="20" height="20" fill="white" />
+                                    <rect
+                                        width="20"
+                                        height="20"
+                                        fill="white"
+                                    />
                                 </clipPath>
                             </defs>
                         </svg>
@@ -122,7 +145,10 @@ export default function ProjectCard({
                 <h3 className="mb-2 text-xl font-medium leading-tight text-white group-hover:underline sm:text-2xl md:text-3xl">
                     {title}
                 </h3>
-                <p className="mb-2 mt-2 text-white/60">{description}</p>
+
+                <p className="mb-2 mt-2 text-white/60">
+                    {description}
+                </p>
             </div>
 
             {tags.length > 0 && (
@@ -130,7 +156,6 @@ export default function ProjectCard({
                     {tags.map((t) => (
                         <span
                             key={t}
-                            // 2. Added "text-white" to make sure the tags text is pure white
                             className="rounded-full border border-dashed border-white px-4 py-2 text-white"
                         >
                             {t}

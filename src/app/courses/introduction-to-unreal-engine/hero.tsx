@@ -21,7 +21,7 @@ export default function GameArtCodevHero() {
                     viewport={{ once: true }}
                     className="text-xl text-black sm:text-xl font-light"
                 >
-                    Game Art, Live Ops Art & Content
+                  Introduction to Unreal Engine
                 </motion.p>
 
                 <motion.h1
@@ -31,7 +31,7 @@ export default function GameArtCodevHero() {
                     transition={{ delay: 0.1 }}
                     className="mt-4 max-w-2xl text-2xl font-extrabold leading-[1.05] text-black sm:text-4xl md:text-6xl"
                 >
-                    Game Art Co-Development
+                  Unleash Your Creativity with Unreal Engine
                 </motion.h1>
 
                 <motion.p
@@ -41,8 +41,7 @@ export default function GameArtCodevHero() {
                     transition={{ delay: 0.2 }}
                     className="mt-8 max-w-2xl text-xl leading-relaxed text-black sm:text-2xl font-light"
                 >
-                    We are your reliable game art co-development services partner.
-                </motion.p>
+                   Dive into the immersive world of Unreal Engine, the industry-leading game development platform that powers some of the most stunning games and real-time 3D experiences.                </motion.p>
             </div>
         </section>
     );

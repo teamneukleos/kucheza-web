@@ -5,18 +5,12 @@ import { AnimatePresence, motion } from "framer-motion";
 
 type Cell = {
     id: string;
-    /** ordered list of screenshots this cell cycles through (up to 6-7 each) */
     images: string[];
-    /** how many of the 4 grid columns this cell occupies on desktop: 1 (narrow) or 2 (wide) */
     span: 1 | 2;
     alt?: string;
 };
 
-// Layout (desktop, 6-column grid, matches Figma exactly):
-//   Row 1:  [narrow] [narrow] [      wide (4 cols)      ]
-//   Row 2:  [      wide (4 cols)      ] [narrow] [narrow]
-// Wide cells are 4 of 6 columns (not just 2 of 4) so landscape screenshots
-// get real breathing room instead of being squeezed into a near-square box.
+
 const cells: Cell[] = [
     {
         id: "enter-name",
@@ -98,8 +92,7 @@ const cells: Cell[] = [
     },
 ];
 
-// Each card cycles at its own pace, staggered on start so they don't all
-// change in lockstep — feels more alive than a synced blink.
+
 const BASE_INTERVAL_MS = 2500;
 const STAGGER_MS = 350;
 
@@ -145,13 +138,7 @@ export default function BentoCarousel() {
         <section className="w-full bg-white py-20 md:py-28">
             {/* Structural Container: Centered max-width boundaries matching Navbar, Hero, and layout pages */}
             <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8">
-                {/*
-                  Mobile: everything stacks 1-per-row (col-span always full width).
-                  Desktop (lg+): exact 4-column diagonal layout matching Figma —
-                  row 1 = narrow, narrow, wide(2) — row 2 = wide(2), narrow, narrow.
-                  Document order + col-span on a 4-col grid naturally produces this
-                  without needing explicit grid-template-areas.
-                */}
+                
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
                     {cells.map((cell, i) => (
                         <div

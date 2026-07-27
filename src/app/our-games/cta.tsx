@@ -26,7 +26,7 @@ export default function Cta() {
                 >
                     <Link
                         href="/contact"
-                        className="inline-flex items-center justify-center rounded-lg bg-[#40F7CC] px-10 py-4 text-lg font-semibold text-[#15151E] transition-opacity hover:opacity-90"
+                        className="inline-flex items-center justify-center rounded-lg bg-[#40F7CC] px-10 py-4 text-lg font-semibold text-[#15151E] transition-all hover:translate-x-5 "
                     >
                         Contact Us
                     </Link>

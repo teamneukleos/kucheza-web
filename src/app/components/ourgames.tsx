@@ -25,12 +25,12 @@ const games: ProjectCardData[] = [
     },
     {
         title: "Sunday School'd",
-        description: "A party game where the world and rules change every birthday",
+        description: "A Bible party trivia game filled with fun, strategy, and surprises.",
         href: "/projects/sunday-school-d",
         image: "/projects/sunday-schoold.png",
         theme: "#FF2D6E",
         tag: "Our Games",
-        tags: [],
+        tags: ["Concept Art", "2D", "Character Design", "Animation", "Splash Art", "Hero Art"],
     },
     {
         title: "Trading Card Game Design",

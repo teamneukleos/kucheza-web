@@ -1,19 +1,23 @@
-// testimonials.tsx
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export type TestimonialData = {
     quote: string;
     author: string;
-    title?: string; 
-    coverImage?: string; 
-    size?: "md" | "lg" | "xl"; 
+    title?: string;
+    coverImage?: string;
+    size?: "md" | "lg" | "xl";
 };
 
 const testimonials: TestimonialData[] = [
@@ -32,6 +36,28 @@ const sizeClasses: Record<NonNullable<TestimonialData["size"]>, string> = {
 };
 
 export default function Testimonials() {
+    const backgroundRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!backgroundRef.current) return;
+
+        const animation = gsap.to(backgroundRef.current, {
+            x: 300,
+            ease: "none",
+            scrollTrigger: {
+                trigger: backgroundRef.current,
+                start: "top bottom",
+                end: "+=2000",
+                scrub: 1,
+            },
+        });
+
+        return () => {
+            animation.kill();
+            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        };
+    }, []);
+
     return (
         <section
             id="testimonials"
@@ -40,10 +66,15 @@ export default function Testimonials() {
                 background: "linear-gradient(127.19deg, #52D7FF 0%, #41F7CD 70%)",
             }}
         >
-            {/* Background line pattern, subtle sway */}
+            {/* Background line pattern */}
             <div
-                className="pointer-events-none absolute left-0 top-0 h-full w-full animate-[sway_8s_ease-in-out_infinite] bg-cover bg-center opacity-60"
-                style={{ backgroundImage: "url(/images/upline.svg)" }}
+                ref={backgroundRef}
+                className="pointer-events-none absolute inset-0 opacity-60"
+                style={{
+                    backgroundImage: "url(/images/upline.svg)",
+                    backgroundRepeat: "repeat",
+                    backgroundPosition: "center",
+                }}
             />
 
             <div className="relative z-10 pb-32 pt-16">
@@ -52,27 +83,26 @@ export default function Testimonials() {
                     slidesPerView={1}
                     speed={1000}
                     loop
-                    autoplay={{ delay: 5000, disableOnInteraction: false }}
+                    autoplay={{
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    }}
                     pagination={{ clickable: true }}
                     className="w-full"
                 >
                     {testimonials.map((t, i) => (
                         <SwiperSlide key={i}>
-                            {/* Structural Container: Synchronized grid limits across sections */}
                             <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8">
-                                {t.title && (
+                                {t.title ? (
                                     <h2 className="mb-4 text-sm font-medium text-black/70">
                                         {t.title}
                                     </h2>
-                                )}
-
-                                {!t.title && (
+                                ) : (
                                     <p className="mb-4 text-sm font-medium text-black/70">
                                         Testimonials
                                     </p>
                                 )}
 
-                                {/* Adjusted margins to clear text indentation limits */}
                                 <blockquote
                                     className={`my-6 break-words text-2xl font-light text-black ${sizeClasses[t.size ?? "md"]}`}
                                 >
@@ -89,7 +119,10 @@ export default function Testimonials() {
                                             className="block max-h-[64px] w-auto object-contain"
                                         />
                                     )}
-                                    <p className="text-black/80">- {t.author}</p>
+
+                                    <p className="text-black/80">
+                                        - {t.author}
+                                    </p>
                                 </div>
                             </div>
                         </SwiperSlide>

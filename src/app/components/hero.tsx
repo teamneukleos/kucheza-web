@@ -32,13 +32,13 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <p className="text-lg font-light text-black leading-relaxed sm:text-xl lg:text-[30px]">
+                <p className="text-lg font-light text-[#15151D] leading-relaxed md:text-2xl lg:text-3xl">
                   Promoting cultural entrepreneurship through games
                 </p>
-                <h1 className="mt-4 text-[44px] font-normal text-black leading-[0.9] tracking-tight sm:text-[64px] lg:mt-6 lg:text-[88px]">
+                <h1 className="mt-4 text-5xl font-normal text-[#15151D] leading-[0.9] tracking-tight md:text-6xl lg:mt-6 lg:text-8xl">
                   Make games <br /> everywhere
                 </h1>
-                <p className="mt-6 text-[26px] font-light text-black leading-tight sm:text-[36px] lg:text-[52px]">
+                <p className="mt-6 text-xl font-light text-[#15151D] leading-tight md:text-2xl lg:text-4xl xl:text-5xl">
                   Made in <span className="font-semibold">Africa</span> for the world
                 </p>
               </motion.div>
