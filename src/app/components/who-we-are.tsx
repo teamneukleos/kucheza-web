@@ -48,7 +48,7 @@ export default function WhoWeAre() {
 
             <Link
               href="/about-us"
-              className="mt-10 inline-flex items-center justify-center rounded-xl bg-[#35F2C7] px-8 py-4 text-base font-medium text-black transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
+              className="mt-10 inline-flex items-center justify-center rounded-xl bg-[#35F2C7] px-8 py-4 text-base font-medium text-black duration-300 transition-all hover:translate-x-5 "
             >
               Our Values
             </Link>

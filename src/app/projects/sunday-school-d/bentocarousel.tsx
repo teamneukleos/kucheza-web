@@ -10,7 +10,6 @@ type Cell = {
     alt?: string;
 };
 
-
 const cells: Cell[] = [
     {
         id: "enter-name",
@@ -92,7 +91,6 @@ const cells: Cell[] = [
     },
 ];
 
-
 const BASE_INTERVAL_MS = 2500;
 const STAGGER_MS = 350;
 
@@ -116,7 +114,7 @@ function BentoCell({ cell, delay }: { cell: Cell; delay: number }) {
     }, [cell.images.length, delay]);
 
     return (
-        <div className="relative h-[220px] w-full overflow-hidden rounded-2xl sm:h-[280px] lg:h-[320px]">
+        <div className="relative w-full h-full overflow-hidden rounded-2xl bg-neutral-900">
             <AnimatePresence>
                 <motion.img
                     key={index}
@@ -126,7 +124,7 @@ function BentoCell({ cell, delay }: { cell: Cell; delay: number }) {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-fill"
                 />
             </AnimatePresence>
         </div>
@@ -135,23 +133,43 @@ function BentoCell({ cell, delay }: { cell: Cell; delay: number }) {
 
 export default function BentoCarousel() {
     return (
-        <section className="w-full bg-white py-20 md:py-28">
-            {/* Structural Container: Centered max-width boundaries matching Navbar, Hero, and layout pages */}
+        <section className="w-full bg-white py-12 md:py-28">
             <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8">
                 
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
-                    {cells.map((cell, i) => (
-                        <div
-                            key={cell.id}
-                            className={
-                                cell.span === 2
-                                    ? "sm:col-span-2 lg:col-span-4"
-                                    : "sm:col-span-1 lg:col-span-1"
-                            }
-                        >
-                            <BentoCell cell={cell} delay={i * STAGGER_MS} />
-                        </div>
-                    ))}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-5 sm:aspect-[1389/1022] w-full">
+                    {cells.map((cell, i) => {
+                        let placementClass = "";
+                        let mobileAspect = "";
+                        
+                        if (cell.id === "enter-name") {
+                            placementClass = "sm:col-start-1 sm:row-start-1 sm:row-span-1";
+                            mobileAspect = "aspect-[251/501]"; // Original portrait asset shape
+                        } else if (cell.id === "enter-room-code") {
+                            placementClass = "sm:col-start-2 sm:row-start-1 sm:row-span-1";
+                            mobileAspect = "aspect-[251/501]"; // Original portrait asset shape
+                        } else if (cell.id === "round-one") {
+                            placementClass = "sm:col-start-3 sm:col-span-3 sm:row-start-1 sm:row-span-1";
+                            mobileAspect = "aspect-[824/500]"; // Original landscape asset shape
+                        } else if (cell.id === "landing-spots") {
+                            placementClass = "sm:col-start-1 sm:col-span-3 sm:row-start-2 sm:row-span-1";
+                            mobileAspect = "aspect-[828/493]"; // Original landscape asset shape
+                        } else if (cell.id === "spot-types") {
+                            placementClass = "sm:col-start-4 sm:row-start-2 sm:row-span-1";
+                            mobileAspect = "aspect-[251/501]"; // Original portrait asset shape
+                        } else if (cell.id === "dave-power-ups") {
+                            placementClass = "sm:col-start-5 sm:row-start-2 sm:row-span-1";
+                            mobileAspect = "aspect-[251/501]"; // Original portrait asset shape
+                        }
+
+                        return (
+                            <div 
+                                key={cell.id} 
+                                className={`${placementClass} ${mobileAspect} sm:aspect-auto w-full`}
+                            >
+                                <BentoCell cell={cell} delay={i * STAGGER_MS} />
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

@@ -80,7 +80,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={handleContactClick}
-                  className="flex h-12 items-center justify-center gap-2 rounded-full bg-[#111111] px-6 text-sm font-semibold text-white transition hover:bg-black/90"
+                  className="flex h-12 items-center justify-center gap-2 rounded-full bg-[#111111] px-6 text-sm font-semibold text-white transition-all hover:translate-x-5"
                 >
                   <span>Contact Us</span>
                   <ArrowRight className="size-4 flex-shrink-0" />

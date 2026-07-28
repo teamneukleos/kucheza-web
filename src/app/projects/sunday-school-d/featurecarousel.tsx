@@ -59,7 +59,7 @@ export default function FeatureCarousel() {
     const slide = slides[index];
 
     return (
-        <section className="w-full bg-white py-20 text-black md:py-28">
+        <section className="w-full bg-white py-6 text-black md:py-4">
             {/* Structural Container: Centers and applies identical layout constraints across sections */}
             <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8">
 
