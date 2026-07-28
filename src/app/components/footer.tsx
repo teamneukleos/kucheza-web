@@ -12,8 +12,8 @@ const socialLinks: SocialLink[] = [
     { platform: "Twitter", url: "https://twitter.com/kuchezagaming", icon: "/icons/twitter.svg" },
     { platform: "Instagram", url: "https://instagram.com/kuchezagaming", icon: "/icons/instagram.svg" },
     { platform: "LinkedIn", url: "https://linkedin.com/company/kuchezagaming", icon: "/icons/linkedin.svg" },
-    { platform: "discord", url: "", icon: "/icons/discord.svg"},
-    { platform: "youtube", url: "", icon: "/icons/youtube.svg"}
+    { platform: "discord", url: "#", icon: "/icons/discord.svg"},
+    { platform: "youtube", url: "#", icon: "/icons/youtube.svg"}
 ];
 
 const legalLinks = [
@@ -25,8 +25,9 @@ export default function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer>
-            <div className="container mx-auto px-6 py-10 sm:px-10 lg:px-16 xl:px-24">
+        <footer className="w-full bg-white text-black border-t border-neutral-100">
+            {/* Structural Container: Centers and handles page limits cleanly with no layout layout shifting */}
+            <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 py-10 md:py-16">
                 <div className="flex flex-col justify-between gap-10 md:flex-row md:items-start md:gap-5">
 
                     <div className="w-[min(100%,350px)]">
@@ -49,40 +50,40 @@ export default function Footer() {
                             </svg>
                         </Link>
 
-                        <p className="mb-7 mt-6 font-light">
+                        <p className="mb-7 mt-6 font-light text-neutral-600">
                             Promoting cultural entrepreneurship through games
                         </p>
 
-                        <div>
-                            Copyright © {year}
+                        <div className="text-sm text-neutral-500">
+                            Copyright © {year} Kucheza.
                             {legalLinks.map((link) => (
-                                <Link key={link.label} className="mx-1 hover:underline" href={link.href}>
+                                <Link key={link.label} className="ml-2 hover:underline hover:text-black transition-colors" href={link.href}>
                                     {link.label}
                                 </Link>
                             ))}
                         </div>
                     </div>
 
-                    <div className="flex flex-row items-start justify-between gap-10 md:flex-row md:gap-28">
-                        <nav>
-                            <div className="mb-5 text-xl font-bold">Social</div>
-                            <ul className="flex space-x-5 font-light md:justify-center">
+                    <div className="flex flex-row items-start justify-between gap-10 md:gap-28">
+                        <div>
+                            <div className="mb-4 text-base font-bold text-neutral-900">Social</div>
+                            <ul className="flex items-center space-x-4">
                                 {socialLinks.map((link) => (
-                                    <li key={link.platform} className="capitalize">
-                                        <a href={link.url} target="_blank" rel="noopener noreferrer">
+                                    <li key={link.platform}>
+                                        <a href={link.url} target="_blank" rel="noopener noreferrer" className="block p-1">
                                             <span className="sr-only">{link.platform}</span>
                                             <Image
                                                 src={link.icon}
-                                                alt=""
-                                                width={15}
-                                                height={15}
-                                                className="size-5 hover:opacity-70"
+                                                alt={link.platform}
+                                                width={20}
+                                                height={20}
+                                                className="size-5 opacity-70 transition-opacity hover:opacity-100"
                                             />
                                         </a>
                                     </li>
                                 ))}
                             </ul>
-                        </nav>
+                        </div>
                     </div>
 
                 </div>

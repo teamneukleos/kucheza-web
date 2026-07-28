@@ -16,7 +16,7 @@ export default function Intro() {
                     nodding during Bible study.
                     <br />
                     <br />
-                    Play a party game where Scripture meets strategy. Prepare your
+                    Play a couch party game where Scripture meets strategy. Prepare your
                     minds. Sharpen your wisdom. Bring your fastest fingers.
                 </motion.p>
             </div>
