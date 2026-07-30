@@ -28,7 +28,7 @@ const games: ProjectCardData[] = [
         description: "A Bible party trivia game filled with fun, strategy, and surprises.",
         href: "/projects/sunday-school-d",
         image: "/projects/sunday-schoold.png",
-        theme: "#FF2D6E",
+        theme: "#24F2BE",
         tag: "Our Games",
         tags: ["Concept Art", "2D", "Character Design", "Animation", "Splash Art", "Hero Art"],
     },

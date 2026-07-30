@@ -103,7 +103,7 @@ export default function Outro() {
                         className="transition-opacity hover:opacity-80"
                     >
                         <img
-                            src="/icons/google-play-badge.svg"
+                            src="/icons/google-play.svg"
                             alt="Google Play"
                             className="h-[32px] w-auto object-contain sm:h-[36px] lg:h-[42px]"
                         />
@@ -116,7 +116,7 @@ export default function Outro() {
                         className="transition-opacity hover:opacity-80"
                     >
                         <img
-                            src="/icons/app-store-badge.svg"
+                            src="/icons/app-store.svg"
                             alt="App Store"
                             className="h-[32px] w-auto object-contain sm:h-[36px] lg:h-[42px]"
                         />
