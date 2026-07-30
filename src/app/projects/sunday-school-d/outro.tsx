@@ -70,6 +70,7 @@ export default function Outro() {
 
                 {/* Store badges */}
                 <div className="mt-10 flex flex-wrap items-center gap-4">
+                    {/* Steam */}
                     <a
                         href="#"
                         aria-label="View on Steam"
@@ -78,10 +79,24 @@ export default function Outro() {
                         <img
                             src="/icons/steam-badge.svg"
                             alt="Steam"
-                            className="h-10 w-auto sm:h-12"
+                            className="h-[48px] w-[48px] object-contain sm:h-[56px] sm:w-[56px] lg:h-[60px] lg:w-[60px]"
                         />
                     </a>
 
+                    {/* Apple TV */}
+                    <a
+                        href="#"
+                        aria-label="View on Apple TV"
+                        className="transition-opacity hover:opacity-80"
+                    >
+                        <img
+                            src="/icons/apple-tv.svg"
+                            alt="Apple TV"
+                            className="h-[48px] w-[48px] object-contain sm:h-[56px] sm:w-[56px] lg:h-[60px] lg:w-[60px]"
+                        />
+                    </a>
+
+                    {/* Google Play */}
                     <a
                         href="#"
                         aria-label="Get it on Google Play"
@@ -90,10 +105,11 @@ export default function Outro() {
                         <img
                             src="/icons/google-play-badge.svg"
                             alt="Google Play"
-                            className="h-10 w-auto sm:h-12"
+                            className="h-[32px] w-auto object-contain sm:h-[36px] lg:h-[42px]"
                         />
                     </a>
 
+                    {/* App Store */}
                     <a
                         href="#"
                         aria-label="Download on the App Store"
@@ -102,7 +118,7 @@ export default function Outro() {
                         <img
                             src="/icons/app-store-badge.svg"
                             alt="App Store"
-                            className="h-10 w-auto sm:h-12"
+                            className="h-[32px] w-auto object-contain sm:h-[36px] lg:h-[42px]"
                         />
                     </a>
                 </div>

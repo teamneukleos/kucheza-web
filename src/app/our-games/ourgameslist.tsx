@@ -26,7 +26,7 @@ const games: ProjectCardData[] = [
         description: "Step into with Sunday School'd, the Bible-inspired party game that transforms scripture into a form, social and strategic for players of all ages",
         href: "/projects/sunday-school-d",
         image: "/projects/sunday-schoold.png",
-        theme: "#FF2D6E",
+        theme: "#24F2BE",
         tag: "Our Games",
     },
 ];

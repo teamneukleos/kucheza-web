@@ -23,7 +23,7 @@ export default function Hero({
                     "linear-gradient(to bottom, rgba(75,84,89,0.4), rgba(0,0,0,0)), url('/hero/hero-bg.png')",
             }}
         >
-            <div className="container relative z-0 pb-20 pt-40 lg:pt-44 xl:pt-48">
+            <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 relative z-0 pb-20 pt-40 lg:pt-44 xl:pt-48">
                 <div className="w-full max-w-[408px] lg:max-w-[748px]">
                     <span className="block text-xl font-light md:text-2xl">
                         {subtext}

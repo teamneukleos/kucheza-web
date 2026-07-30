@@ -194,9 +194,11 @@ function NavItem({
                 <Link
                   key={child.title}
                   href={child.href}
-                  className="block px-4 py-2.5 text-sm font-normal text-neutral-700 rounded-xl hover:bg-neutral-50 hover:text-black"
+                  className="group block rounded-xl px-4 py-2.5 text-sm font-normal text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-black"
                 >
-                  {child.title}
+                  <span className="relative inline-block pb-0.5 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-black after:transition-transform after:duration-300 group-hover:after:scale-x-100">
+                    {child.title}
+                  </span>
                 </Link>
               ))}
             </div>
