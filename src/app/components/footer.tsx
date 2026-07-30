@@ -51,7 +51,7 @@ export default function Footer() {
                         </Link>
 
                         <p className="mb-7 mt-6 font-light text-neutral-600">
-                            Promoting cultural entrepreneurship through games
+                            Serious About Play
                         </p>
 
                         <div className="text-sm text-neutral-500">
