@@ -11,7 +11,7 @@ type ValueItem = {
 
 const values: ValueItem[] = [
     {
-        title: "Build Roots",
+        title: "Build Roots ",
         description:
             "Coach and empower people to create socially cohesive communities. To build trust, resilience, openness and safe spaces.",
         image: "/values/build-roots.png",
