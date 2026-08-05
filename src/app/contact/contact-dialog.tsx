@@ -25,9 +25,13 @@ export function useContactDialog() {
     return ctx;
 }
 
+type SubmitStatus = "idle" | "sending" | "sent" | "error";
+
 export function ContactDialogProvider({ children }: { children: ReactNode }) {
     const dialogRef = useRef<HTMLDialogElement>(null);
     const [isOpen, setIsOpen] = useState(false);
+    const [status, setStatus] = useState<SubmitStatus>("idle");
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
         const dialog = dialogRef.current;
@@ -45,6 +49,45 @@ export function ContactDialogProvider({ children }: { children: ReactNode }) {
 
     function close() {
         setIsOpen(false);
+        // reset status once the dialog is closed so it's fresh next time it opens
+        setStatus("idle");
+        setErrorMessage("");
+    }
+
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        setStatus("sending");
+        setErrorMessage("");
+
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+        const payload = {
+            name: formData.get("name"),
+            email: formData.get("email"),
+            message: formData.get("message"),
+        };
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                setStatus("error");
+                setErrorMessage(data.error ?? "Something went wrong. Please try again.");
+                return;
+            }
+
+            setStatus("sent");
+            form.reset();
+        } catch {
+            setStatus("error");
+            setErrorMessage("Network error — please check your connection and try again.");
+        }
     }
 
     return (
@@ -69,7 +112,7 @@ export function ContactDialogProvider({ children }: { children: ReactNode }) {
                 <h2 className="mb-7 text-2xl font-medium">Contact</h2>
 
                 <div className="grid gap-10 md:grid-cols-[1fr_0.8fr]">
-                    <form id="contact-form">
+                    <form id="contact-form" onSubmit={handleSubmit}>
                         <div className="grid gap-6">
                             <div className="grid gap-2">
                                 <label htmlFor="name" className="text-sm font-medium">
@@ -117,6 +160,7 @@ export function ContactDialogProvider({ children }: { children: ReactNode }) {
                                     type="checkbox"
                                     id="terms"
                                     name="terms"
+                                    required
                                     className="h-4 w-4 rounded border-black/30"
                                 />
                                 <label htmlFor="terms" className="text-sm">
@@ -130,10 +174,20 @@ export function ContactDialogProvider({ children }: { children: ReactNode }) {
                             <div className="grid gap-1">
                                 <button
                                     type="submit"
-                                    className="inline-flex items-center justify-center rounded-full bg-[#24F2BE] px-6 py-3 text-base font-semibold text-black transition-opacity hover:opacity-90"
+                                    disabled={status === "sending"}
+                                    className="inline-flex items-center justify-center rounded-full bg-[#24F2BE] px-6 py-3 text-base font-semibold text-black transition-opacity hover:opacity-90 disabled:opacity-50"
                                 >
-                                    Send
+                                    {status === "sending" ? "Sending..." : "Send"}
                                 </button>
+
+                                {status === "sent" && (
+                                    <p className="mt-2 text-sm text-green-600">
+                                        Message sent — we&apos;ll be in touch soon!
+                                    </p>
+                                )}
+                                {status === "error" && (
+                                    <p className="mt-2 text-sm text-red-600">{errorMessage}</p>
+                                )}
                             </div>
                         </div>
                     </form>

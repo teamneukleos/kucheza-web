@@ -151,7 +151,7 @@ export default function CourseCurriculum() {
 
               <button
                 onClick={open}
-                className="mt-8 rounded-xl bg-[#FFD600] px-12 py-4 text-xl font-semibold  transition-all hover:translate-x-5"
+                className="mt-8 rounded-xl bg-[#FFD600] px-12 py-4 text-xl font-semibold transition-all hover:translate-x-5"
               >
                 Register
               </button>
