@@ -24,6 +24,10 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .container {
   @apply mx-auto w-full px-5 sm:px-[30px] md:px-10 lg:px-[50px];
 }
