@@ -38,7 +38,7 @@ export default function PrivacyPolicyPage() {
   return (
     <main className="min-h-screen bg-white text-black">
       {/* Page Header */}
-        <section className="relative flex min-h-[80vh] w-full items-center overflow-hidden bg-[#EDEDED] py-20 md:min-h-[90vh] md:py-24">
+        <section className="relative flex min-h-[80vh] w-full items-center overflow-hidden bg-[#EDEDED] py-20 md:min-h-[100vh] md:py-24">
           <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8">
             <span className="inline-block rounded-md bg-[#24F2BE] px-5 py-2 text-lg font-bold text-black md:text-xl">
               Privacy Policy
